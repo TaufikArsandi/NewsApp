@@ -25,13 +25,12 @@ class ArticlesViewModel: ObservableObject {
             }
         }
     }
-    //@AppStorage("item_selection")
+
     private var selectedMenuItemId: MenuItem.ID?
 
     private let newsAPI = NewsAPI.shared
     private let pagingData = PagingData(itemsPerPage: 10, maxPageLimit: 5)
     
-    // Currently only the In-Memory Cache will work for Pagination flow as the DiskCache is not persisting the Paging Data to disk. Data won't be able to restored after app restarts.
     private let cache = InMemoryCache<[Articles]>(expirationInterval: 5 * 60)
 
     var lastRefreshedDateText: String {

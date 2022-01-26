@@ -29,22 +29,8 @@ class ArticleSearchViewModel: ObservableObject {
     
     private init() {
         load()
-//        #if os(tvOS)
-//        observeSearchQuery()
-//        #endif
     }
     
-//    private func observeSearchQuery() {
-//        $searchQuery
-//            .debounce(for: 1, scheduler: DispatchQueue.main)
-//            .sink { _ in
-//                Task { [weak self] in
-//                    guard let self = self else { return }
-//                    await self.searchArticle()
-//                }
-//            }
-//            .store(in: &cancellables)
-//    }
     
     func addHistory(_ text: String) {
         if let index = history.firstIndex(where: { text.lowercased() == $0.lowercased() }) {
